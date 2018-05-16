@@ -16,11 +16,13 @@ class HomePage extends Component {
 
   render() {
     const { users } = this.props;
+    const h1Style = {
+      textAlign: 'center'
+    };
 
     return (
       <div>
-        <h1>Home</h1>
-        <p>The Home Page is accessible by every signed in user.</p>
+        <h1 style={h1Style}>What's happening on the streets of Madison</h1>
 
         { !!users && <UserList users={users} /> }
       </div>
@@ -29,14 +31,22 @@ class HomePage extends Component {
 }
 
 const UserList = ({ users }) =>
-  <div>
-    <h2>List of Usernames of Users</h2>
-    <p>(Saved on Sign Up in Firebase Database)</p>
-
-    {Object.keys(users).map(key =>
-      <div key={key}>Hello {users[key].username} <img src={users[key].profile.profile_picture} /> </div>
-    )}
+  <div className='eventSection'>
+    {Object.keys(users).map(key => EventList(users[key].events, users[key]) )}
   </div>
+
+  const EventList = (events, place) =>
+      Object.keys(events).map(key => 
+          <div key={key} className='event-box'>
+            <h2>  {events[key].event_name}  </h2>
+            <span> {events[key].price === 'free' ? 'FREE' : '$' + events[key].price}  </span>
+            <p style={{textTransform: 'capitalize', fontSize: '0.9em', color: '#4C4C4C'}}>
+              {place.username}
+            </p>
+            <hr />
+            <div className='image-in-event-box'><img src={events[key].banner} /></div>
+          </div>
+        )
 
 const authCondition = (authUser) => !!authUser;
 
