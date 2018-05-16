@@ -32,7 +32,7 @@ class HomePage extends Component {
 
 const UserList = ({ users }) =>
   <div className='eventSection'>
-    {Object.keys(users).map(key => EventList(users[key].events, users[key]) )}
+    {Object.keys(users).map(key => users[key].events ? EventList(users[key].events, users[key]) : null )}
   </div>
 
   const EventList = (events, place) =>

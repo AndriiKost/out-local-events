@@ -20,4 +20,11 @@ export const updateImageURL = (url) =>
     profile_picture : url
   });
 
+export const addEvent = (banner, event_name, price) =>
+db.ref(`users/` + auth.currentUser.uid + '/events/' + Math.floor(Math.random() * 958184759832) + 1 ).set({
+    banner,
+    event_name,
+    price,
+  });
+
 // Other Entity APIs ...

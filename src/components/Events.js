@@ -7,11 +7,13 @@ const byPropKey = (propertyName, value) => () => ({
 });
 
 const INITIAL_STATE = {
-  url: '',
+  banner: '',
+  event_name: '',
+  price: '',
   error: null,
 };
 
-class AccountImageForm extends Component {
+class Events extends Component {
   constructor(props) {
     super(props);
 
@@ -19,9 +21,9 @@ class AccountImageForm extends Component {
   }
 
   onSubmit = (event) => {
-    const { url } = this.state;
+    const { banner, event_name, price } = this.state;
 
-    db.updateImageURL(url)
+    db.addEvent(banner, event_name, price)
       .then(() => {
         this.setState(() => ({ ...INITIAL_STATE }));
       })
@@ -34,23 +36,36 @@ class AccountImageForm extends Component {
 
   render() {
     const {
-      url,
+      banner, 
+      event_name, 
+      price,
       error,
     } = this.state;
 
-    const isInvalid =
-      url === '';
+    const isInvalid = banner === '' ||  event_name === '' || price === '';
 
     return (
       <form onSubmit={this.onSubmit}>
         <input
-          value={url}
-          onChange={event => this.setState(byPropKey('url', event.target.value))}
+          value={banner}
+          onChange={event => this.setState(byPropKey('banner', event.target.value))}
           type="url"
           placeholder="Image URL"
         />
+        <input
+          value={event_name}
+          onChange={event => this.setState(byPropKey('event_name', event.target.value))}
+          type="text"
+          placeholder="Event Name"
+        />
+        <input
+          value={price}
+          onChange={event => this.setState(byPropKey('price', event.target.value))}
+          type="text"
+          placeholder="Event Price"
+        />
         <button disabled={isInvalid} type="submit">
-          Add Image
+          Add Event
         </button>
 
         { error && <p>{error.message}</p> }
@@ -59,4 +74,4 @@ class AccountImageForm extends Component {
   }
 }
 
-export default AccountImageForm;
+export default Events;

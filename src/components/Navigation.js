@@ -13,15 +13,15 @@ const Navigation = ({ authUser }) =>
 const NavigationAuth = () =>
   <ul>
     <li><SignOutButton /></li>
-    <li><Link to={routes.LANDING}>Landing</Link></li>
+    <li><Link to={routes.LANDING}>Home</Link></li>
     <li><Link to={routes.ACCOUNT}>Account</Link></li>
-    <li><Link to={routes.HOME}>Home</Link></li>
+    {/* <li><Link to={routes.HOME}>Home</Link></li> */}
   </ul>
 
 const NavigationNonAuth = () =>
   <ul>
     <li><Link to={routes.SIGN_IN}>Sign In</Link></li>
-    <li><Link to={routes.LANDING}>Landing</Link></li>
+    <li><Link to={routes.LANDING}>Home</Link></li>
   </ul>
 
 const mapStateToProps = (state) => ({

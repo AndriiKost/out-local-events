@@ -3,13 +3,14 @@ body {
   padding: 0;
   font-family: Nunito, sans-serif;
 }
-
+/* Navigation and header styling */
 .Navigation {
   display: block;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  border-bottom: 1px solid #000;
 }
 .Navigation ul {
   margin: 0;
@@ -36,18 +37,22 @@ body {
   padding: 20px 20px 0 20px;
 }
 
+/* Event Page  */
 .event-box {
   width: 90%;
   margin: 5% 5% 0 5%;
   text-align: center;
   border: 1px solid #000;
   border-radius: 2%;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
 }
 
 .image-in-event-box img {
-  width: 90%;
-  height: auto;
-  padding: 5%;
+  object-fit: cover;
+  width: 500px;
+  height: 250px;
 }
 
 .eventSection {
@@ -61,4 +66,69 @@ body {
 }
 #root {
   margin-top: 70px;
+}
+/* Account Settings */
+.accountSettings {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.accountSection {
+  border: 1px solid #ECE9E6;
+  border-radius: 10px;
+  margin: 15px 10px 0 10px;
+  padding: 15px;
+}
+.accountSection form{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+}
+.accountSection form input, .accountSection form button {
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+
+.accountSection form button {
+  background-color: #eee;
+}
+.accountSection form button:hover {
+  cursor: pointer;
+  background-color: #a5a5a5;
+  color: #fff;
+}
+
+/* Account Add Event Section */
+.eventAddSection {
+  padding-top: 10px;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  text-align: center;
+}
+.eventAddSection form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+  padding: 0 20% 5% 20%;
+}
+.eventAddSection form input, .eventAddSection form button {
+  height: 30px;
+  padding: 5px;
+  font-size: 1em;
+  border: 1px solid #eee;
+  border-radius: 7px;
+}
+.eventAddSection form button {
+  background-color: #595959;
+  color: #fff;
+  cursor: pointer;
+  height: 45px;
+}
+.eventAddSection form button:hover {
+  background-color: #323232;
+}
+.accountInfo {
+  position: absolute;
+  top: 0;
 }
