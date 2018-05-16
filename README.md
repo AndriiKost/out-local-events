@@ -1,3 +1,11 @@
+Application to check events in your city! (Only available in Madison, WI for now)
+
+[Check it here](https://out-local-events.herokuapp.com/)
+
+Powered by React
+
+## Info
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
