@@ -42,8 +42,9 @@ class SignUpForm extends Component {
   
       auth.doCreateUserWithEmailAndPassword(email, passwordOne)
         .then(authUser => {
+            console.log(authUser)
             // Create a user in your own accessible Firebase Database too
-            db.doCreateUser(authUser.uid, username, email)
+            db.doCreateUser(authUser.user.uid, username, email)
         .then(() => {
             // use unmutable state
             this.setState(() => ({ ...INITIAL_STATE }));
@@ -121,7 +122,4 @@ const SignUpLink = () =>
 
 export default withRouter(SignUpPage);
 
-export {
-  SignUpForm,
-  SignUpLink,
-};
+export { SignUpForm, SignUpLink };

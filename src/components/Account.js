@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
+import AccountImage from './AccountImage';
 import AuthUserContext from './AuthUserContext';
 import { PasswordForgetForm } from './PasswordForget';
 import PasswordChangeForm from './PasswordChange';
@@ -12,6 +13,7 @@ const AccountPage = ({ authUser }) =>
         <h1>Account: {authUser.email}</h1>
         <PasswordForgetForm />
         <PasswordChangeForm />
+        <AccountImage />
       </div>
 
 const mapStateToProps = (state) => ({

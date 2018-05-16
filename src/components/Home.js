@@ -34,7 +34,7 @@ const UserList = ({ users }) =>
     <p>(Saved on Sign Up in Firebase Database)</p>
 
     {Object.keys(users).map(key =>
-      <div key={key}>{users[key].username}</div>
+      <div key={key}>Hello {users[key].username} <img src={users[key].profile.profile_picture} /> </div>
     )}
   </div>
 
